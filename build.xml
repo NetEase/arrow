@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<project name="testng-plugin" basedir="." default="jar">
+
+	<property file="./VERSION" />
+	<property name="project-name" value="testng-plugin-${version}" />
+	<property name="lib" value="libs" />
+	<property name="bin" value="bin"/>
+	<property name="src" value="src" />
+	<property name="jar-file-name" value="${project-name}.jar" />
+
+	<path id="Third-Part Lib">
+		<fileset dir="${lib}">
+			<include name="*.jar" />
+		</fileset>
+	</path> 
+
+	<target name="usage" description="Build file usage info (default task)">
+		<echo message=" " />
+		<echo message="  ${project-name} " />
+		<echo message="-------------------------------------------------------" />
+		<echo message="  Available Targets:" />
+		<echo message="  clean      - Delete class files and .jar file" />
+		<echo message="  copy-res   - copy resource to bin" />
+		<echo message="  compile    - Compiles the source code" />
+		<echo message="  jar        - Generate an .jar for source code" />
+		<echo message="-------------------------------------------------------" />
+	</target>
+
+	<target name="clean">
+		<delete file="${jar-file-name}" />
+		<delete dir="${bin}" />
+	</target>
+	<target name="copy-res">
+		<copy todir="${bin}">
+			<fileset dir="${src}">
+				<exclude name="**/*.java" />
+			</fileset>
+		</copy>
+	</target>
+	<target name="compile" depends="usage,clean,copy-res">
+	    <mkdir dir="${bin}"/>
+		<javac debug="true" deprecation="true" destdir="${bin}"
+			failonerror="true" srcdir="${src}" includeantruntime="false">
+			<classpath refid="Third-Part Lib" />
+			<compilerarg line="-encoding UTF-8 " />
+		</javac>
+	</target>
+
+	<target name="jar" depends="compile">
+		<jar basedir="${bin}" destfile="${jar-file-name}">
+			<zipfileset excludes="META-INF/*.SF" src="${lib}/qdox-1.12.1.jar"/>
+		</jar>
+	</target>
+    
+</project>
