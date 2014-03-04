@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
-<project name="testng-plugin" basedir="." default="jar">
+<project name="arrow" basedir="." default="jar">
 
 	<property file="./VERSION" />
-	<property name="project-name" value="testng-plugin-${version}" />
+	<property name="project-name" value="arrow-${version}" />
 	<property name="lib" value="libs" />
 	<property name="bin" value="bin"/>
 	<property name="src" value="src" />
