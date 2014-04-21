@@ -36,6 +36,10 @@ public class TestngRetry implements IRetryAnalyzer {
 			retryCount++;
 			return true;
 		}
+		//support testng dataprovider retry
+		if(maxRetryCount - retryCount == -1) {
+			retryCount = 1;
+		}
 		return false;
 	}
 
