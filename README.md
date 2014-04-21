@@ -1,6 +1,8 @@
 ## Introduction
 
-Arrow is a TestNG plugin providing several intersting features mainly for QA engineers.
+Arrow is a TestNG plugin providing several intersting features mainly for QA engineers.<br>
+
+[中文介绍](http://qa.blog.163.com/blog/static/1901470022014245230459/ "中文介绍")
 
 ## Features
 
