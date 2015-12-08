@@ -35,6 +35,7 @@ Arrow is a TestNG plugin providing several intersting features mainly for QA eng
     <listener class-name="com.netease.qa.testng.TestResultListener" />
     <listener class-name="com.netease.qa.testng.RetryListener" />
     <listener class-name="com.netease.qa.testng.PowerEmailableReporter" />
+    <listener class-name="com.netease.qa.testng.PowerXMLReport" />
 </listeners>
 ```
 3、Add config.properties file in the root directory of your project
