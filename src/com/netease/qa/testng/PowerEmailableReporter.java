@@ -217,7 +217,11 @@ public class PowerEmailableReporter implements IReporter {
 					boolean hasParameters = parameters != null && parameters.length > 0;
 					if (hasParameters) {
 						for (Object p : parameters) {
-							parameterString = parameterString + Utils.escapeHtml(p.toString()) + " ";
+							String pString = "null";
+							if(p != null) {
+								pString = p.toString();
+							}
+							parameterString = parameterString + Utils.escapeHtml(pString) + " ";
 						}
 					}
 				}
@@ -299,7 +303,11 @@ public class PowerEmailableReporter implements IReporter {
 			m_out.println("</tr>");
 			m_out.print("<tr class=\"param stripe\">");
 			for (Object p : parameters) {
-				m_out.println("<td>" + Utils.escapeHtml(p.toString()) + "</td>");
+				String pString = "null";
+				if(p != null) {
+					pString = p.toString();
+				}
+				m_out.println("<td>" + Utils.escapeHtml(pString) + "</td>");
 			}
 			m_out.println("</tr>");
 		}
